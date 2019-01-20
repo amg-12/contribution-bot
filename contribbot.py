@@ -29,5 +29,5 @@ if __name__ == '__main__':
 	commit('Commit #' + str(count))
 
 ''' times run:
-3
+4
 '''
