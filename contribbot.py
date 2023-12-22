@@ -5,9 +5,8 @@ def increment():
 	r = open(f, 'r')
 	lines = r.read().splitlines()
 	r.close()
-	penult = len(lines) - 2
-	count = int(lines[penult]) + 1
-	lines[penult] = str(count)
+	count = int(lines[-2]) + 1
+	lines[-2] = str(count)
 	w = open(f, 'w')
 	w.write('\n'.join(lines))
 	w.close()
@@ -27,5 +26,5 @@ if __name__ == '__main__':
 	commit('Commit #' + str(count))
 
 ''' times run:
-262
+263
 '''
