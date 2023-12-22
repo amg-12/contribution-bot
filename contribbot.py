@@ -4,11 +4,10 @@ def increment():
 	f = 'contribbot.py'
 	r = open(f, 'r')
 	lines = r.read().splitlines()
-	penult = len(lines) - 2
-	count = int(lines[penult])
-	count += 1
-	lines[penult] = str(count)
 	r.close()
+	penult = len(lines) - 2
+	count = int(lines[penult]) + 1
+	lines[penult] = str(count)
 	w = open(f, 'w')
 	w.write('\n'.join(lines))
 	w.close()
@@ -17,10 +16,9 @@ def increment():
 def commit(msg):
 	commands = [
 		'git add .',
-		'git commit -m \"' + str(msg) + '\"',
-		'git status',
+		'git commit -m \"{}\"'.format(msg),
 		'git push'
-		]
+	]
 	for command in commands:
 		subprocess.call(command, shell=True)
 
@@ -29,5 +27,5 @@ if __name__ == '__main__':
 	commit('Commit #' + str(count))
 
 ''' times run:
-261
+262
 '''
